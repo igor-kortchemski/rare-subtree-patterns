@@ -74,6 +74,13 @@ and request ID `rare20261030`. Its mechanical report records `status: fail` in
 `phase: preparation`: source fetch requires public access and failed while the repository
 was private. Comparator, Lean and NanoDa were not run by that workflow.
 
+The next [public-source run](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41105960433)
+fetched `189178da782d875508c45c0b3f4c5792a99e5eb2`, then reported `license.mismatch` in
+preparation. The root `LICENSE` has since been normalized by removing its extra SPDX
+identifier line; its remaining bytes exactly match the official Apache-2.0 text.
+The SPDX choice remains `Apache-2.0`. This correction receives a new source commit and
+fresh checks; the failed run supplies no Comparator/kernel evidence.
+
 The local `lake comparator --config comparator.json` attempt exited 2 because bubblewrap
 requires Linux namespaces (`comparator-platform.log`). No sandbox was disabled.
 Standalone export replay does not replace canonical Challenge provenance checking or

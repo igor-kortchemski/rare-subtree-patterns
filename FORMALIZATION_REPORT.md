@@ -480,6 +480,8 @@ namespaces. No sandbox was disabled.
 The repository has been created and the proof candidate pushed; its Ubuntu CI is successful.
 Public visibility and fresh checks of the documentation revision are authorized. The initial
 full Palomar run failed at private-source fetching, before Comparator or kernel verification.
+The first public-source run then stopped at license detection; the root Apache-2.0
+license text has been normalized without changing the license choice or proofs.
 At this documentation freeze, a passing full report remains pending. Original B06/B07
 obligations remain explicitly open. No registry intake, submission or registration has
 occurred. See [PUBLICATION.md](PUBLICATION.md) for exact commits, runs and the certification scope.

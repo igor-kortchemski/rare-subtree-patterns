@@ -62,7 +62,9 @@ zero type-checker errors) and Lean kernel replay. The only permitted axioms are
 **Full Palomar verification is pending at this documentation revision.** The
 [first full-preflight attempt](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101135106)
 stopped before proof checks because the repository was private. The public candidate
-is to be checked by the same pinned full workflow. The Comparator badge reports that
+is to be checked by the same pinned full workflow. Its first public-source attempt
+identified a license-file formatting issue; the root `LICENSE` now matches the standard
+Apache-2.0 text exactly. The Comparator badge reports that
 workflow's aggregate status, including source preparation; it does not certify a
 particular commit on its own. See [PUBLICATION.md](PUBLICATION.md) and
 [verification/README.md](verification/README.md) for exact evidence and limitations,

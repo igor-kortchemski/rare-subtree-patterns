@@ -72,6 +72,14 @@ fetch failed with `could not read Username for 'https://github.com': terminal pr
 because the repository was private. No Comparator or kernel checks ran in that workflow.
 This access failure is distinct from the successful local kernel replays and GitHub CI.
 
+The first public-source [run](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41105960433)
+fetched commit `189178da782d875508c45c0b3f4c5792a99e5eb2` successfully, then stopped at
+license detection with `license.mismatch`. The root `LICENSE` contained the complete
+Apache-2.0 text with a prepended SPDX identifier line. That extra line has been removed:
+the file now matches the [official Apache-2.0 text](https://www.apache.org/licenses/LICENSE-2.0.txt)
+byte for byte. The chosen license, metadata and all proof/configuration files are unchanged.
+A new frozen commit receives fresh CI and full preflight after this formatting correction.
+
 The public documentation revision is to receive fresh CI and a full preflight at its
 own immutable commit. At the time of this documentation freeze, official sandboxed
 Comparator and a passing full Palomar report remain pending. Use the workflow links
