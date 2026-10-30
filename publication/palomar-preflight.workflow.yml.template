@@ -1,0 +1,20 @@
+# TEMPLATE — not active. Copy to `.github/workflows/palomar-preflight.yml` only in a public repository
+# after the human maintainer has chosen the truthful `authorization_relationship`.
+# Pipeline revision below is the head of PalomarRegistry/PalomarSubmission fetched on 2026-10-30
+# (commit date 2026-10-28T19:18:58Z); refresh it at release time and keep `uses` and `pipeline_commit` equal.
+name: Palomar preflight
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  palomar-preflight:
+    uses: PalomarRegistry/PalomarSubmission/.github/workflows/submission.yml@14aa8d6b3c2f14a8540605e37144560b9a00e7e7
+    with:
+      repository: ${{ github.repository }}
+      commit: ${{ github.sha }}
+      pipeline_commit: 14aa8d6b3c2f14a8540605e37144560b9a00e7e7
+      request_id: TODO12lowercase   # TODO(human): exactly 12 lowercase alphanumeric characters
+      mode: full
+      execution_profile: palomar-standard-v1
+      options: '{"comparator_config_path":"comparator.json","authorization_relationship":"TODO(human): the truthful supported relationship"}'

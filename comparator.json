@@ -1,0 +1,13 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "PoissonDeclumping.poissonApproximation",
+    "PoissonDeclumping.poissonApproximation2",
+    "PoissonDeclumping.maxString",
+    "PoissonDeclumping.maxLeafHeight"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"],
+  "enable_nanoda": true
+}

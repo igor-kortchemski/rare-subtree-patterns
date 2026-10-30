@@ -1,0 +1,5 @@
+lean files (excluding .lake): 112; largest: PoissonDeclumping/Bridge/EndpointSmoothing.lean (1234 lines; limit 10000)
+library modules: 107; reachable from PoissonDeclumping.lean: 107; unreachable: []
+deliberate Challenge holes (`sorry` occurrences in Challenge.lean, incl. docstring mentions): 7
+findings (proof holes / axioms / set_option / unsafe / partial / missing module header):
+  (none)

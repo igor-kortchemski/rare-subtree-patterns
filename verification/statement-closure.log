@@ -1,0 +1,88 @@
+Command: lake env lean verification/StatementClosure.lean (local comparison, NOT Comparator)
+== Local statement-closure check (NOT a Comparator run) ==
+Challenge import closure: 4847 modules; PoissonDeclumping modules among them: 0
+(a) PoissonDeclumping.poissonApproximation: theorem in both; type Expr-equal: true
+(a) PoissonDeclumping.poissonApproximation2: theorem in both; type Expr-equal: true
+(a) PoissonDeclumping.maxString: theorem in both; type Expr-equal: true
+(a) PoissonDeclumping.maxLeafHeight: theorem in both; type Expr-equal: true
+(b) constants reached from the four statement types and compared: 25899
+(b) project-defined constants among them: 71
+      PoissonDeclumping.InStableDomain
+      PoissonDeclumping.IsCritical
+      PoissonDeclumping.IsCutoff
+      PoissonDeclumping.LatticeGumbel
+      PoissonDeclumping.MaxLeafHeightStatement
+      PoissonDeclumping.MaxStringStatement
+      PoissonDeclumping.Microscopic
+      PoissonDeclumping.NonClustering
+      PoissonDeclumping.PlaneTree
+      PoissonDeclumping.PoissonApproximation2Statement
+      PoissonDeclumping.PoissonApproximationStatement
+      PoissonDeclumping.Skeleton
+      PoissonDeclumping.StableDomain
+      PoissonDeclumping.StructuralMicroscopic
+      PoissonDeclumping.TwoPointLocalization
+      PoissonDeclumping.admissibleSizes
+      PoissonDeclumping.cB
+      PoissonDeclumping.instMeasurableSpaceListPlaneTree
+      PoissonDeclumping.markProb
+      PoissonDeclumping.markedCountLaw
+      PoissonDeclumping.pairProb
+      PoissonDeclumping.paperTVDist
+      PoissonDeclumping.stepLaw
+      PoissonDeclumping.tStar
+      PoissonDeclumping.tStarStar
+      PoissonDeclumping.twoPointSet
+      PoissonDeclumping.uniformFringeLaw
+      PoissonDeclumping.walkLaw
+      PoissonDeclumping.IsCutoff.mk
+      PoissonDeclumping.PlaneTree.Admissible
+      PoissonDeclumping.PlaneTree.Embeds
+      PoissonDeclumping.PlaneTree._sizeOf_1
+      PoissonDeclumping.PlaneTree._sizeOf_2
+      PoissonDeclumping.PlaneTree._sizeOf_2_eq
+      PoissonDeclumping.PlaneTree._sizeOf_inst
+      PoissonDeclumping.PlaneTree.bienayme
+      PoissonDeclumping.PlaneTree.casesOn
+      PoissonDeclumping.PlaneTree.children
+      PoissonDeclumping.PlaneTree.completeTree
+      PoissonDeclumping.PlaneTree.conditioned
+      PoissonDeclumping.PlaneTree.declumpedMark
+      PoissonDeclumping.PlaneTree.degSeq
+      PoissonDeclumping.PlaneTree.fringeTrees
+      PoissonDeclumping.PlaneTree.instMeasurableSpace
+      PoissonDeclumping.PlaneTree.leafHeight
+      PoissonDeclumping.PlaneTree.markCount
+      PoissonDeclumping.PlaneTree.maxCompleteHeight
+      PoissonDeclumping.PlaneTree.node
+      PoissonDeclumping.PlaneTree.rec
+      PoissonDeclumping.PlaneTree.rec_1
+      PoissonDeclumping.PlaneTree.rootDegree
+      PoissonDeclumping.PlaneTree.rootLeafHeight
+      PoissonDeclumping.PlaneTree.vertexCount
+      PoissonDeclumping.PlaneTree.weight
+      PoissonDeclumping.Skeleton.mk
+      PoissonDeclumping.StableDomain.mk
+      PoissonDeclumping.paperTVDist._proof_1
+      PoissonDeclumping.walkLaw._f
+      PoissonDeclumping.PlaneTree.Embeds.leaf
+      PoissonDeclumping.PlaneTree.Embeds.node
+      PoissonDeclumping.PlaneTree.bienayme._proof_1
+      PoissonDeclumping.PlaneTree.children.match_1
+      PoissonDeclumping.PlaneTree.completeTree._f
+      PoissonDeclumping.PlaneTree.completeTree.match_1
+      PoissonDeclumping.PlaneTree.fringeTrees._proof_1
+      PoissonDeclumping.PlaneTree.fringeTrees._proof_2
+      PoissonDeclumping.PlaneTree.node.sizeOf_spec
+      PoissonDeclumping.PlaneTree.rootLeafHeight._proof_1
+      PoissonDeclumping.PlaneTree.rootLeafHeight._proof_2
+      PoissonDeclumping.PlaneTree.rootLeafHeight._proof_3
+      PoissonDeclumping.PlaneTree.rootLeafHeight.match_1
+(c) PoissonDeclumping.poissonApproximation: Solution collectAxioms = #[propext, Classical.choice, Quot.sound]; traversal = #[propext, Classical.choice, Quot.sound]; Challenge collectAxioms = #[propext, sorryAx, Classical.choice, Quot.sound]
+(c) PoissonDeclumping.poissonApproximation2: Solution collectAxioms = #[propext, Classical.choice, Quot.sound]; traversal = #[propext, Classical.choice, Quot.sound]; Challenge collectAxioms = #[propext, sorryAx, Classical.choice, Quot.sound]
+(c) PoissonDeclumping.maxString: Solution collectAxioms = #[propext, Classical.choice, Quot.sound]; traversal = #[propext, Classical.choice, Quot.sound]; Challenge collectAxioms = #[propext, sorryAx, Classical.choice, Quot.sound]
+(c) PoissonDeclumping.maxLeafHeight: Solution collectAxioms = #[propext, Classical.choice, Quot.sound]; traversal = #[propext, Classical.choice, Quot.sound]; Challenge collectAxioms = #[propext, sorryAx, Classical.choice, Quot.sound]
+problems: 0
+RESULT: PASS (local check, 25899 constants compared, 71 project-defined; 207622 ms)
+
+Exit status: 0

@@ -1,0 +1,131 @@
+Command: lake env lean verification/Axioms.lean
+structure PoissonDeclumping.StableDomain (μ : PMF ℕ) (α : ℝ) (a : ℕ → ℝ) : Prop
+number of parameters: 3
+fields:
+  PoissonDeclumping.StableDomain.critical : PoissonDeclumping.IsCritical μ
+  PoissonDeclumping.StableDomain.nondegenerate : μ 1 ≠ 1
+  PoissonDeclumping.StableDomain.alpha_mem : 1 < α ∧ α ≤ 2
+  PoissonDeclumping.StableDomain.monotone : Monotone a
+  PoissonDeclumping.StableDomain.pos : ∀ (n : ℕ), 1 ≤ n → 0 < a n
+  PoissonDeclumping.StableDomain.converges : ∃ ν,
+      MeasureTheory.IsProbabilityMeasure ν ∧
+        (∀ (lam : ℝ), 0 < lam → ∫ (y : ℝ), Real.exp (-lam * y) ∂ν = Real.exp (lam ^ α)) ∧
+          ∀ (f : BoundedContinuousFunction ℝ ℝ),
+            Filter.Tendsto
+              (fun n => ∫ (x : ℝ), f x ∂MeasureTheory.Measure.map (fun z => ↑z / a n) (PoissonDeclumping.walkLaw μ n))
+              Filter.atTop (nhds (∫ (x : ℝ), f x ∂ν))
+constructor:
+  PoissonDeclumping.StableDomain.mk {μ : PMF ℕ} {α : ℝ} {a : ℕ → ℝ} (critical : PoissonDeclumping.IsCritical μ)
+    (nondegenerate : μ 1 ≠ 1) (alpha_mem : 1 < α ∧ α ≤ 2) (monotone : Monotone a) (pos : ∀ (n : ℕ), 1 ≤ n → 0 < a n)
+    (converges :
+      ∃ ν,
+        MeasureTheory.IsProbabilityMeasure ν ∧
+          (∀ (lam : ℝ), 0 < lam → ∫ (y : ℝ), Real.exp (-lam * y) ∂ν = Real.exp (lam ^ α)) ∧
+            ∀ (f : BoundedContinuousFunction ℝ ℝ),
+              Filter.Tendsto
+                (fun n => ∫ (x : ℝ), f x ∂MeasureTheory.Measure.map (fun z => ↑z / a n) (PoissonDeclumping.walkLaw μ n))
+                Filter.atTop (nhds (∫ (x : ℝ), f x ∂ν))) :
+    PoissonDeclumping.StableDomain μ α a
+PoissonDeclumping.poissonApproximation : PoissonDeclumping.PoissonApproximationStatement
+PoissonDeclumping.poissonApproximation2 : PoissonDeclumping.PoissonApproximation2Statement
+PoissonDeclumping.maxString : PoissonDeclumping.MaxStringStatement
+PoissonDeclumping.maxLeafHeight : PoissonDeclumping.MaxLeafHeightStatement
+'PoissonDeclumping.poissonApproximation' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.poissonApproximation2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.maxString' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.maxLeafHeight' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PoissonDeclumping.Stable.stableToolkit : ∀ {μ : PMF ℕ} {α : ℝ} {a : ℕ → ℝ},
+  PoissonDeclumping.StableDomain μ α a → PoissonDeclumping.StableToolkit μ α a
+'PoissonDeclumping.Stable.stableToolkit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Stable.localLimit' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Examples.SimpleWalk.witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Examples.BinomialWalk.witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.PlaneTree.bienayme_isProbabilityMeasure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Lukasiewicz.existsUnique_zeta_rotate_eq_length' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PoissonDeclumping.ChenStein.prop_AGG' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Bridge.tendsto_errorB3' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.PlaneTree.conditioned_declump_to_raw' depends on axioms: [propext, Classical.choice, Quot.sound]
+@PoissonDeclumping.Bridge.exists_qProb_le_mul_markProb : ∀ {μ : PMF ℕ} {α : ℝ} {a : ℕ → ℝ},
+  PoissonDeclumping.StableToolkit μ α a →
+    ∀ (G : ℕ → PoissonDeclumping.PlaneTree → Prop) (k : ℕ → ℕ) {M : ℕ → ℕ},
+      ((fun n => ↑(M n)) =o[Filter.atTop] fun n => ↑n) →
+        ∃ C,
+          0 < C ∧
+            ∀ (n : ℕ),
+              1 ≤ n →
+                PoissonDeclumping.PlaneTree.Admissible μ n →
+                  PoissonDeclumping.Bridge.qProb μ (G (k n)) (M n) n ≤ C * PoissonDeclumping.markProb μ G k n
+@PoissonDeclumping.DirectApplications.unary_raw_not_tendsto_poisson_mean : ∀ {μ : PMF ℕ},
+  PoissonDeclumping.InStableDomain μ →
+    0 < μ 1 →
+      ∀ {n k : ℕ → ℕ},
+        Filter.Tendsto n Filter.atTop Filter.atTop →
+          (∀ᶠ (j : ℕ) in Filter.atTop, PoissonDeclumping.PlaneTree.Admissible μ (n j)) →
+            ∀ {lam : ℝ},
+              0 < lam →
+                Filter.Tendsto (fun j => ↑(n j) * (μ 1).toReal ^ k j) Filter.atTop (nhds lam) →
+                  ¬Filter.Tendsto
+                      (fun j =>
+                        PoissonDeclumping.paperTVDist
+                          (MeasureTheory.Measure.map
+                            (PoissonDeclumping.PlaneTree.markCount
+                              (PoissonDeclumping.PlaneTree.completeTree 1 (k j)).Embeds)
+                            (PoissonDeclumping.PlaneTree.conditioned μ (n j)))
+                          (ProbabilityTheory.poissonMeasure (↑(n j) * (μ 1).toReal ^ k j).toNNReal))
+                      Filter.atTop (nhds 0)
+@PoissonDeclumping.Stable.exists_norming_isEquivalent_sqrt : ∀ {μ : PMF ℕ} {α : ℝ} {a : ℕ → ℝ},
+  PoissonDeclumping.StableDomain μ α a →
+    MeasureTheory.MemLp (fun j => ↑j) 2 μ.toMeasure →
+      ∃ c, 0 < c ∧ Asymptotics.IsEquivalent Filter.atTop a fun n => c * √↑n
+@PoissonDeclumping.Stable.stableDomain_of_finiteVariance : ∀ {μ : PMF ℕ},
+  PoissonDeclumping.IsCritical μ →
+    μ 1 ≠ 1 →
+      MeasureTheory.MemLp (fun j => ↑j) 2 μ.toMeasure →
+        PoissonDeclumping.StableDomain μ 2 fun n => √(∫ (z : ℤ), ↑z ^ 2 ∂PoissonDeclumping.stepLaw μ) / √2 * √↑n
+@PoissonDeclumping.Stable.exists_trimmed_walk_coupling : ∀ {μ : PMF ℕ} {α : ℝ} {a : ℕ → ℝ},
+  PoissonDeclumping.StableDomain μ α a →
+    ∀ {ν : MeasureTheory.Measure ℝ} [MeasureTheory.IsProbabilityMeasure ν],
+      (∀ (lam : ℝ), 0 < lam → ∫ (y : ℝ), Real.exp (-lam * y) ∂ν = Real.exp (lam ^ α)) →
+        ∀ {M : ℕ → ℕ},
+          ((fun n => ↑(M n)) =o[Filter.atTop] fun n => ↑n) →
+            ∀ {ε : ℝ},
+              0 ≤ ε →
+                ε < 1 →
+                  ∃ X Y,
+                    (∀ (n : ℕ),
+                        Measurable (X n) ∧
+                          MeasureTheory.Measure.map (X n) PoissonDeclumping.RealCoupling.unitProbability =
+                            ↑(PoissonDeclumping.Stable.timeScaledLaw μ a (fun n => n - M n - ⌊ε * ↑n⌋₊) n)) ∧
+                      Measurable Y ∧
+                        MeasureTheory.Measure.map Y PoissonDeclumping.RealCoupling.unitProbability =
+                            MeasureTheory.Measure.map (fun y => (1 - ε) ^ (1 / α) * y) ν ∧
+                          ∀ᵐ (u : ℝ) ∂PoissonDeclumping.RealCoupling.unitProbability,
+                            Filter.Tendsto (fun n => X n u) Filter.atTop (nhds (Y u))
+'PoissonDeclumping.Bridge.exists_qProb_le_mul_markProb' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.DirectApplications.unary_counterexample_exists' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PoissonDeclumping.Stable.exists_norming_isEquivalent_sqrt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Stable.stableDomain_of_finiteVariance' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.RegularlyVaryingSeq.potter_floor_slowlyVarying' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PoissonDeclumping.RealCoupling.exists_measurable_real_coupling' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PoissonDeclumping.Stable.exists_trimmed_walk_coupling' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Stable.exists_stable_limit_of_tendsto_mul_stepCF_sub_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PoissonDeclumping.Stable.maximal_tight' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Stable.tendsto_maximal_tail' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PoissonDeclumping.Stable.truncated_secondMoment_le_stepCF_defect' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PoissonDeclumping.Stable.stepCF_defect_le_truncated_secondMoment_add_tail' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Exit status: 0

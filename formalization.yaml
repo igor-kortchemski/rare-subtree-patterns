@@ -1,0 +1,83 @@
+# Local publication candidate. Repository creation, publication and Palomar verification are pending.
+version: v0.4
+project:
+  name: Poisson declumping
+  description: >-
+    Lean proofs of the four Introduction theorems of Rare subtree patterns in
+    size-conditioned Bienaymé trees: Poisson approximation and declumping,
+    including periodic offspring laws. Secondary results, proof departures,
+    manuscript corrections and remaining background obligations are recorded
+    in FORMALIZATION_REPORT.md.
+  authors:
+    - Igor Kortchemski
+  responsible_maintainers:
+    - Igor Kortchemski
+  license: Apache-2.0
+classification:
+  arxiv: [math.PR]
+  msc2020: [60J80, 60G50, 05C05, 05C80]
+sources:
+  - title: 'Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping'
+    authors: [Igor Kortchemski, Leonard Vetter]
+    id: arXiv:2607.22291v1
+    type: paper
+    location: https://arxiv.org/abs/2607.22291v1
+    relationship: formalizes
+    license: CC-BY-4.0
+    note: >-
+      The paper is preserved unchanged. The formalization includes corrected
+      periodic bridge statements and alternative proofs disclosed in the report.
+status:
+  scope: >-
+    The Comparator configuration selects the four Introduction theorems. The
+    repository also proves the reviewed numbered results, with periodic-domain
+    corrections and proof departures recorded in FORMALIZATION_REPORT.md. The
+    standing attraction hypothesis is expressed by normalized weak convergence;
+    no separate truncated-moment criterion is assumed. Potter bounds are proved
+    for the actual normalization function. The general stable-domain
+    characterization and full functional J1 theorem are unformalized background,
+    not assumptions of the selected results. Whole-source completion is not claimed.
+    Comparator and Palomar verification statuses are recorded in PUBLICATION.md.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: [propext, Classical.choice, Quot.sound]
+automation:
+  methods:
+    - method: agent
+      models: []
+      framework: Claude and Codex
+      tool_setup: Lean 4.35.0, mathlib 4.35.0, local Lean autoformalization skills
+      prompting_notes: Continuation and audit instructions retained in the project records.
+  notes: >-
+    Claude and Codex agents developed and reviewed the proofs under Igor
+    Kortchemski's direction. The author and responsible maintainer were explicitly
+    confirmed by the user. Exact model identities for the earlier Claude work
+    were not recorded.
+fidelity:
+  divergences: See FORMALIZATION_REPORT.md and MANUSCRIPT_RECOMMENDATIONS.md.
+review:
+  status: agent-reviewed
+  reviewers: [Independent Claude and Codex review agents]
+  notes: >-
+    See INDEPENDENT_REVIEW.md for scoped statement and proof-route reviews.
+    See verification/README.md and PUBLICATION.md for the current mechanical evidence;
+    agent statement review is distinct from human review and Palomar verification.
+alignment:
+  namespace: PoissonDeclumping
+  statements:
+    - source: Theorem 1.1
+      lean: PoissonDeclumping.poissonApproximation
+      module: PoissonDeclumping.MainTheorems
+      status: proved
+    - source: Theorem 1.2
+      lean: PoissonDeclumping.poissonApproximation2
+      module: PoissonDeclumping.MainTheorems
+      status: proved
+    - source: Theorem 1.3
+      lean: PoissonDeclumping.maxString
+      module: PoissonDeclumping.MainTheorems
+      status: proved
+    - source: Theorem 1.4
+      lean: PoissonDeclumping.maxLeafHeight
+      module: PoissonDeclumping.MainTheorems
+      status: proved

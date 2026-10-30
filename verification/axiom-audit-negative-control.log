@@ -1,0 +1,7 @@
+Negative control: disallow the normally permitted axioms for one known theorem.
+audited 1 declarations from PoissonDeclumping.*; offenders: 1
+  PoissonDeclumping.paperTVDist_eq_zero_iff: [propext, Classical.choice, Quot.sound]
+/tmp/poisson-finish-axiom-negative.lean:18:0: error: axiom audit failed: 1 declaration(s) use forbidden axioms
+
+Observed exit status: 1
+Negative control: PASS

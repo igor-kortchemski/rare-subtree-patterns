@@ -1,0 +1,21 @@
+# Prepared citation metadata for the local publication candidate.
+cff-version: 1.2.0
+message: "If you use this formalization, please cite it and the formalized paper."
+title: "Lean formalization of: Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping"
+authors:
+  - family-names: Kortchemski
+    given-names: Igor
+version: "0.1.0"
+repository-code: "https://github.com/igor-kortchemski/rare-subtree-patterns"
+license: Apache-2.0
+references:
+  - type: article
+    title: "Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping"
+    authors:
+      - family-names: Kortchemski
+        given-names: Igor
+      - family-names: Vetter
+        given-names: Leonard
+    doi: 10.48550/arXiv.2607.22291
+    url: "https://arxiv.org/abs/2607.22291v1"
+    notes: "arXiv:2607.22291v1, submitted 24 July 2026; the paper itself is licensed under CC BY 4.0 per its arXiv record."

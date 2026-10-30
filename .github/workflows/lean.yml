@@ -1,0 +1,28 @@
+name: Lean build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: leanprover/lean-action@24581d74d674803a25a81b10b059c5c0cdd344c6 # v1.6.2
+        with:
+          auto-config: false
+          build: true
+          use-mathlib-cache: true
+      - name: Challenge text equals the library definitions
+        run: bash verification/check-challenge-defs.sh
+      - name: Build Challenge and Solution (the Challenge has four deliberate sorries)
+        run: lake build Challenge Solution
+      - name: Whole-library axiom audit
+        run: lake env lean verification/AxiomAudit.lean

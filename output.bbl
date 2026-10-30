@@ -1,0 +1,166 @@
+\begin{thebibliography}{GGLS23}
+
+\bibitem[AGG89]{AGG89}
+Richard Arratia, Larry Goldstein, and Louis Gordon.
+\newblock Two moments suffice for poisson approximations: the chen-stein method.
+\newblock {\em The Annals of Probability}, pages 9--25, 1989.
+
+\bibitem[Ald91]{Ald91}
+David Aldous.
+\newblock Asymptotic fringe distributions for general families of random trees.
+\newblock {\em The Annals of Applied Probability}, pages 228--266, 1991.
+
+\bibitem[BGT89]{bingham1989regular}
+Nicholas~H Bingham, Charles~M Goldie, and Jef~L Teugels.
+\newblock {\em Regular variation}, volume~27.
+\newblock Cambridge university press, 1989.
+
+\bibitem[BP01]{BJ01}
+J{\"u}rgen Bennies and Jim Pitman.
+\newblock Asymptotics of the hurwitz binomial distribution related to mixed poisson galton--watson trees.
+\newblock {\em Combinatorics, Probability and Computing}, 10(3):203--211, 2001.
+
+\bibitem[BP17]{BP17}
+Mikl{\'o}s B{\'o}na and Boris Pittel.
+\newblock On a random search tree: asymptotic enumeration of vertices by distance from leaves.
+\newblock {\em Advances in Applied Probability}, 49(3):850--876, 2017.
+
+\bibitem[CD16]{CD16}
+Xing~Shi Cai and Luc Devroye.
+\newblock A study of large fringe and non-fringe subtrees in conditional {Galton}-{Watson} trees.
+\newblock {\em arXiv preprint arXiv:1602.03850}, 2016.
+
+\bibitem[CD17]{CD17}
+Xing~Shi Cai and Luc Devroye.
+\newblock A study of large fringe and non-fringe subtrees in conditional {Galton}-{Watson} trees.
+\newblock {\em ALEA, Lat. Am. J. Probab. Math. Stat.}, 14(1):579--611, 2017.
+
+\bibitem[Cop17]{Cop17}
+Kayla Copenhaver.
+\newblock {$k$}-protected vertices in unlabeled rooted plane trees.
+\newblock {\em Graphs and Combinatorics}, 33(2):347--355, 2017.
+
+\bibitem[CS08]{CS08}
+Gi-Sang Cheon and Louis~W. Shapiro.
+\newblock Protected points in ordered trees.
+\newblock {\em Applied Mathematics Letters}, 21(5):516--520, 2008.
+
+\bibitem[DGZ23]{DGZ23}
+Luc Devroye, Marcel~K. Goh, and Rosie~Y. Zhao.
+\newblock On the peel number and the leaf-height of {Galton}-{Watson} trees.
+\newblock {\em Comb. Probab. Comput.}, 32(1):68--90, 2023.
+
+\bibitem[DJ14]{DJ14}
+Luc Devroye and Svante Janson.
+\newblock {Protected nodes and fringe subtrees in some random trees}.
+\newblock {\em Electronic Communications in Probability}, 19(none):1 -- 10, 2014.
+
+\bibitem[DP12]{DP12}
+Rebecca R.~X. Du and Helmut Prodinger.
+\newblock Notes on protected nodes in digital search trees.
+\newblock {\em Applied Mathematics Letters}, 25(6):1025--1028, 2012.
+
+\bibitem[Fel71]{Fel71}
+William Feller.
+\newblock {\em An introduction to probability theory and its applications. {V}ol. {II}.}
+\newblock Second edition. John Wiley \& Sons Inc., New York, 1971.
+
+\bibitem[FJ22]{FS22}
+James~Allen Fill and Svante Janson.
+\newblock The sum of powers of subtree sizes for conditioned {Galton}-{Watson} trees.
+\newblock {\em Electron. J. Probab.}, 27:77, 2022.
+\newblock Id/No 114.
+
+\bibitem[FJW24]{FSW24}
+James~Allen Fill, Svante Janson, and Stephan Wagner.
+\newblock Conditioned {Galton}-{Watson} trees: the shape functional, and more on the sum of powers of subtree sizes and its mean.
+\newblock {\em Matematica}, 3(2):435--508, 2024.
+
+\bibitem[GGLS23]{GGLS23}
+Bernhard Gittenberger, Zbigniew Go{\l}{\k e}biewski, Isabella Larcher, and Ma{\l}gorzata Sulkowska.
+\newblock Protection numbers in simply generated trees and {P{\'o}lya} trees.
+\newblock {\em Applicable Analysis and Discrete Mathematics}, 17(1):1--24, 2023.
+
+\bibitem[HJ15]{HJ15}
+Cecilia Holmgren and Svante Janson.
+\newblock Limit laws for functions of fringe trees for binary search trees and random recursive trees.
+\newblock {\em Electronic Journal of Probability}, 20(4):1--51, 2015.
+
+\bibitem[HP17]{HP17}
+Clemens Heuberger and Helmut Prodinger.
+\newblock Protection number in plane trees.
+\newblock {\em Applicable Analysis and Discrete Mathematics}, 11(2):314--326, 2017.
+
+\bibitem[HSW24]{HSW24}
+Clemens Heuberger, Sarah~J. Selkirk, and Stephan Wagner.
+\newblock The distribution of the maximum protection number in simply generated trees.
+\newblock {\em Combinatorics, Probability and Computing}, 33(4):518--553, 2024.
+
+\bibitem[IL71]{IL71}
+I.~A. Ibragimov and Yu.~V. Linnik.
+\newblock {\em Independent and stationary sequences of random variables}.
+\newblock Wolters-Noordhoff Publishing, Groningen, 1971.
+\newblock With a supplementary chapter by I. A. Ibragimov and V. V. Petrov, Translation from the Russian edited by J. F. C. Kingman.
+
+\bibitem[Jan12]{Jan12}
+Svante Janson.
+\newblock Simply generated trees, conditioned {Galton}-{Watson} trees, random allocations and condensation.
+\newblock {\em Probab. Surv.}, 9:103--252, 2012.
+
+\bibitem[Jan16]{Jan16}
+Svante Janson.
+\newblock Asymptotic normality of fringe subtrees and additive functionals in conditioned {Galton}-{Watson} trees.
+\newblock {\em Random Struct. Algorithms}, 48(1):57--101, 2016.
+
+\bibitem[Jan21]{Jan21}
+Svante Janson.
+\newblock On general subtrees of a conditioned {Galton}-{Watson} tree.
+\newblock {\em Electron. Commun. Probab.}, 26:12, 2021.
+\newblock Id/No 23.
+
+\bibitem[LG05]{LG05}
+Jean-Fran{\c{c}}ois Le~Gall.
+\newblock Random trees and applications.
+\newblock {\em Probab. Surv.}, 2:245--311, 2005.
+
+\bibitem[Man11]{Man11}
+Toufik Mansour.
+\newblock Protected points in {$k$}-ary trees.
+\newblock {\em Applied Mathematics Letters}, 24(4):478--480, 2011.
+
+\bibitem[MS26]{MS26}
+V{\'\i}ctor~J Maci{\'a} and Benedikt Stufler.
+\newblock Uniform integrability of the distance to the nearest leaf in random trees.
+\newblock {\em arXiv preprint arXiv:2606.15339}, 2026.
+
+\bibitem[MW15]{MW15}
+Hosam~M. Mahmoud and Mark~Daniel Ward.
+\newblock Asymptotic properties of protected nodes in random recursive trees.
+\newblock {\em Journal of Applied Probability}, 52(1):290--297, 2015.
+
+\bibitem[OHJ26]{BHJ26}
+Gabriel~Berzunza Ojeda, Cecilia Holmgren, and Svante Janson.
+\newblock Large fringe trees for random trees with given vertex degrees.
+\newblock Preprint, {arXiv}:2604.06012 [math.{PR}] (2026), 2026.
+
+\bibitem[Pit06]{Pit06}
+Jim Pitman.
+\newblock {\em Combinatorial stochastic processes. {Ecole} d'{Et{\'e}} de {Probabilit{\'e}s} de {Saint}-{Flour} {XXXII} -- 2002.}, volume 1875 of {\em Lect. Notes Math.}
+\newblock Berlin: Springer, 2006.
+
+\bibitem[RR26]{RR26}
+Fameno Rakotoniaina and Dimbinaina Ralaivaosaona.
+\newblock Asymptotic normality for general subtree counts in conditioned galton--watson trees.
+\newblock {\em arXiv preprint arXiv:2603.08076}, 2026.
+
+\bibitem[RW15]{DW15}
+Dimbinaina Ralaivaosaona and Stephan Wagner.
+\newblock Repeated fringe subtrees in random rooted trees.
+\newblock In {\em Proceedings of the 12th workshop on analytic algorithmics and combinatorics (ANALCO '15), San Diego, CA, USA, January 4, 2015}, pages 78--88. Philadelphia, PA: Society for Industrial {and} Applied Mathematics (SIAM), 2015.
+
+\bibitem[SBW22]{BW22}
+Louisa Seelbach~Benkner and Stephan Wagner.
+\newblock Distinct fringe subtrees in random trees.
+\newblock {\em Algorithmica}, 84(12):3686--3728, 2022.
+
+\end{thebibliography}

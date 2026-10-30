@@ -1,0 +1,6 @@
+Command: lake env leanexport Solution -- PoissonDeclumping.poissonApproximation PoissonDeclumping.poissonApproximation2 PoissonDeclumping.maxString PoissonDeclumping.maxLeafHeight
+
+Exit status: 0
+Export bytes: 405504858
+Export SHA-256: 262eca9e22c51c17f67df35b2ef01af1fbb9c26324fe1e2f1cfa8b10c4813bcc
+Elapsed seconds: 117.78

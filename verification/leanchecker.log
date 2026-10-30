@@ -1,0 +1,7 @@
+Standalone Lean default-kernel replay of the exported proof closure.
+Command: lake env leanchecker --from-export .lake/verification/solution.ndjson
+Export SHA-256: 262eca9e22c51c17f67df35b2ef01af1fbb9c26324fe1e2f1cfa8b10c4813bcc
+Lean default kernel accepts the solution
+
+Exit status: 0
+Elapsed seconds: 156.81

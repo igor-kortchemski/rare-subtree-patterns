@@ -1,0 +1,9 @@
+Standalone independent NanoDa replay (NOT sandboxed Comparator or full Palomar preflight).
+Command: lake env nanoda_bin verification/nanoda-config.json
+Export SHA-256: 262eca9e22c51c17f67df35b2ef01af1fbb9c26324fe1e2f1cfa8b10c4813bcc
+Checked 56903 declarations with no typechecker errors, 1 pretty printer errors: [
+    "Unable to print axioms",
+]
+
+Exit status: 0
+Elapsed seconds: 55.71

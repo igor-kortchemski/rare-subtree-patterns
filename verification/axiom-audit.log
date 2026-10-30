@@ -1,0 +1,4 @@
+Command: lake env lean verification/AxiomAudit.lean
+audited 1986 declarations from PoissonDeclumping.*; offenders: 0
+
+Exit status: 0
