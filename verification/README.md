@@ -1,8 +1,9 @@
-# Current local verification evidence
+# Verification evidence
 
 The reviewed publication interface uses normalized weak attraction directly, without the
 unused truncated-moment conjunct. All results below concern the pinned Lean/mathlib 4.35.0
-candidate. They are local evidence, separate from sandboxed Comparator and Palomar verification.
+candidate. The table records local evidence; the GitHub checks below identify their
+own exact commit and remain separate from sandboxed Comparator and full Palomar verification.
 
 | Check | Current result | Evidence |
 | --- | --- | --- |
@@ -56,10 +57,28 @@ The source list excludes `.git`, `.lake`, evidence logs and the generated list i
 it is not a clean build of the changed interface. The current local build reuses pinned
 dependency artifacts. It does not claim a clean Linux checkout build.
 
-## External checks still pending
+## GitHub CI and full preflight
 
-`lake comparator --config comparator.json` was attempted with its default sandbox and exited 2
-because bubblewrap requires Linux namespaces (`comparator-platform.log`). No sandbox was disabled.
-Standalone export replay does not replace the canonical Challenge provenance audit or official
-Comparator. The clean public Linux build, GitHub CI and full Palomar preflight remain pending.
-The prepared manual workflow is `.github/workflows/palomar-preflight.yml`.
+[CI run 41101096161](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101096161)
+completed successfully for `81fbaf90a44aa3f8ae7807306288990dde3756ba` on Ubuntu.
+It checked out the candidate afresh, restored canonical Mathlib cache, built the library
+(3,464 jobs), compared 426 shared definition lines, built Challenge/Solution (3,467 jobs)
+and audited 1,986 project declarations with zero forbidden dependencies. This does not
+claim a from-source rebuild of Mathlib. The public documentation revision preserves all
+Lean sources, dependency/toolchain pins and Comparator configuration from that commit.
+
+[Full-preflight run 41101135106](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101135106)
+checked the same source identity using pipeline
+`14aa8d6b3c2f14a8540605e37144560b9a00e7e7`, `mode: full`, profile `palomar-standard-v1`
+and request ID `rare20261030`. Its mechanical report records `status: fail` in
+`phase: preparation`: source fetch requires public access and failed while the repository
+was private. Comparator, Lean and NanoDa were not run by that workflow.
+
+The local `lake comparator --config comparator.json` attempt exited 2 because bubblewrap
+requires Linux namespaces (`comparator-platform.log`). No sandbox was disabled.
+Standalone export replay does not replace canonical Challenge provenance checking or
+Comparator. At this documentation freeze, a passing official Comparator/full Palomar
+report remains pending. Fresh public-candidate runs are available under
+[Lean CI](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/lean.yml)
+and [full preflight](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/palomar-preflight.yml).
+Their reports identify the exact source commit; branch badges alone do not certify it.

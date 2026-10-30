@@ -1,4 +1,4 @@
-# Local publication candidate. Repository creation, publication and Palomar verification are pending.
+# Four-main-theorem publication candidate; exact verification status is in PUBLICATION.md.
 version: v0.4
 project:
   name: Poisson declumping

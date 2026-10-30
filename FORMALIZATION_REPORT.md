@@ -27,20 +27,17 @@ and manuscript observations in
 - **Environment:** Lean `leanprover/lean4:v4.35.0`; mathlib release `v4.35.0`
   at commit `56a005855ea17e0b0958f73ec801ae140b0a1679`; all other dependency
   revisions as pinned in `lake-manifest.json` (unchanged).
-- **Lean snapshot:** the project directory is now a local Git repository targeting
-  `igor-kortchemski/rare-subtree-patterns`; the final local commit is obtained with
-  `git rev-parse HEAD`. It has no public commit. The snapshot described here consists of 106 module files under
-  `PoissonDeclumping/` (29,063 lines; the largest, `Bridge/EndpointSmoothing.lean`,
-  has 1,234 lines; counted with `find PoissonDeclumping -name '*.lean' | wc -l`)
-  plus the root `PoissonDeclumping.lean`. They include
-  `Examples/BinomialWalk.lean` (a second, aperiodic witness for `(H_α)`) and
-  `MainConsequences.lean` (the unconditional forms of the corollaries, Section 3).
-  Every file has a `module` header. An aggregate hash of the 98 module files,
-  computed with
-  `find PoissonDeclumping -name '*.lean' | LC_ALL=C sort | xargs -I{} shasum -a 256 "{}" | shasum -a 256`,
-  is `b049c7abad6cd3514bccdca41697a6d963afd65e080535a89e9ff36ab8afecca` (excluding the root file;
-  the root file and every other file are in `verification/source-sha256.txt`, with a tree hash and a
-  Lean-and-configuration hash).
+- **Lean snapshot:** the maintained repository is
+  [igor-kortchemski/rare-subtree-patterns](https://github.com/igor-kortchemski/rare-subtree-patterns).
+  Proof candidate `81fbaf90a44aa3f8ae7807306288990dde3756ba` passed GitHub CI; this
+  publication documentation revision preserves its mathematical sources and configuration.
+  There are 106 module files under `PoissonDeclumping/` (29,063 lines; the largest,
+  `Bridge/EndpointSmoothing.lean`, has 1,234 lines) plus the root `PoissonDeclumping.lean`.
+  They include `Examples/BinomialWalk.lean` (an aperiodic witness for `(H_α)`) and
+  `MainConsequences.lean` (the unconditional corollaries of Section 3). Every file has a
+  `module` header. The current per-file and aggregate source identities are recorded in
+  [verification/source-sha256.txt](verification/source-sha256.txt); the Lean-and-configuration
+  hash is `8c8dfb521df2a6dc7c03073e8957ad94d56b53c941e6f4cb35dd6ad6651a0941`.
 
 Declaration names below are relative to the namespace `PoissonDeclumping`
 (for example `Bridge.critM` is `PoissonDeclumping.Bridge.critM`). Every name
@@ -378,10 +375,14 @@ hash `8f57c4051e8a62c1ccaa0a91f284f09e06ce41459d91a36ffb68551ad7153905`.
 It does not certify a clean rebuild of the changed tree. Current evidence above
 is an incremental local build with preserved pinned dependency artifacts.
 
-**External checks still pending:** sandboxed Comparator, a clean Linux build from a
-public checkout, GitHub CI and the full Palomar preflight. Standalone exported-proof
-replay is recorded separately below and in `verification/README.md`.
-This evidence does not establish whole-paper completion or publication readiness.
+**GitHub CI:** [run 41101096161](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101096161)
+passed for `81fbaf90a44aa3f8ae7807306288990dde3756ba`, including a fresh Ubuntu project
+checkout/build with Mathlib cache, shared definitions, Challenge/Solution and the whole-library
+axiom audit. The public documentation revision preserves that proof/configuration snapshot.
+The first full Palomar run failed during preparation because private source could not be fetched;
+no proof checks ran. At this documentation freeze, sandboxed Comparator and a passing full
+Palomar report remain pending fresh public-candidate checks. Exact evidence and workflow links
+are in [verification/README.md](verification/README.md). Whole-paper completion is not claimed.
 
 ## 6. Module map and remaining obligations
 
@@ -463,7 +464,7 @@ This evidence does not establish whole-paper completion or publication readiness
 
 ### Publication status
 
-The mathematically reviewed local candidate selects the four Introduction theorems for Palomar.
+The mathematically reviewed publication candidate selects the four Introduction theorems for Palomar.
 All library modules build; the current axiom audit covers 1,986 declarations with zero forbidden
 dependencies. The local semantic comparison passes for 25,899 constants (71 project constants).
 The exact selected proof export passes both independent NanoDa replay (56,903 declarations,
@@ -476,7 +477,9 @@ Canonical metadata, citation, license and a pinned manual full-preflight workflo
 The default Comparator was attempted and cannot start on macOS because it requires Linux
 namespaces. No sandbox was disabled.
 
-This is not a successful Palomar verification or a whole-source completion claim. The public
-GitHub repository/commit, clean Linux CI, sandboxed Comparator and full Palomar mechanical
-report are still pending. Original B06/B07 obligations remain explicitly open. No publication,
-registry intake, submission or registration has occurred. See [PUBLICATION.md](PUBLICATION.md).
+The repository has been created and the proof candidate pushed; its Ubuntu CI is successful.
+Public visibility and fresh checks of the documentation revision are authorized. The initial
+full Palomar run failed at private-source fetching, before Comparator or kernel verification.
+At this documentation freeze, a passing full report remains pending. Original B06/B07
+obligations remain explicitly open. No registry intake, submission or registration has
+occurred. See [PUBLICATION.md](PUBLICATION.md) for exact commits, runs and the certification scope.

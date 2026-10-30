@@ -1,4 +1,4 @@
-# Prepared citation metadata for the local publication candidate.
+# Citation metadata for the rare-subtree-patterns formalization.
 cff-version: 1.2.0
 message: "If you use this formalization, please cite it and the formalized paper."
 title: "Lean formalization of: Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping"

@@ -37,5 +37,5 @@ The default Comparator was attempted and returned exit 2 because bubblewrap requ
 Linux namespaces. The sandbox was not disabled. The prepared manual Linux workflow is
 `.github/workflows/palomar-preflight.yml`; it requires the frozen public candidate commit.
 
-The Challenge is frozen mathematically for this local candidate. Any change to a statement
+The Challenge is frozen mathematically for this publication candidate. Any change to a statement
 or one of its semantic definitions requires renewed fidelity review and comparison evidence.

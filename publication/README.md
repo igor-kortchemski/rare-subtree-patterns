@@ -1,9 +1,11 @@
 # Publication preparation files
 
-The local candidate now has canonical [formalization metadata](../formalization.yaml),
+The publication candidate has canonical [formalization metadata](../formalization.yaml),
 [citation metadata](../CITATION.cff) and an [Apache-2.0 license](../LICENSE).
-Igor Kortchemski explicitly confirmed authorship and responsibility. The intended repository is
-`igor-kortchemski/rare-subtree-patterns`; it has not yet been created or populated by this task.
+Igor Kortchemski explicitly confirmed authorship and responsibility. The maintained repository is
+[igor-kortchemski/rare-subtree-patterns](https://github.com/igor-kortchemski/rare-subtree-patterns).
+The proof candidate passed Ubuntu CI; public publication and fresh checks of this documentation
+revision are authorized. The first Palomar attempt stopped at private-source fetching.
 The former `.draft` files are superseded pointers, not alternative metadata.
 
 The [full mechanical preflight workflow](../.github/workflows/palomar-preflight.yml) is prepared

@@ -1,10 +1,13 @@
 # Publication candidate
 
-Updated 30 October 2026. The intended repository is
-`igor-kortchemski/rare-subtree-patterns`. This is a local publication candidate;
-the repository has not been created or populated by this task. The candidate's
-source identity is recorded in `verification/source-sha256.txt`; a future public
-commit must identify the same proof and configuration files.
+Updated 30 October 2026. The publication repository is
+[igor-kortchemski/rare-subtree-patterns](https://github.com/igor-kortchemski/rare-subtree-patterns).
+It was created privately with proof candidate
+`81fbaf90a44aa3f8ae7807306288990dde3756ba`. This documentation revision prepares the
+authorized public candidate and records the completed checks on that proof snapshot.
+Its Lean sources, toolchain, dependency pins and Comparator configuration are unchanged.
+[verification/source-sha256.txt](verification/source-sha256.txt) identifies the files;
+workflow runs bind their reports to the exact Git commit they checked.
 
 ## Mathematical claim
 
@@ -56,10 +59,25 @@ semantic definitions, but is not Comparator. Standalone replay of the selected p
 The official sandboxed Comparator was attempted with the default sandbox and
 returned exit 2: its bubblewrap sandbox requires Linux namespaces. No sandbox was
 disabled. This machine has no configured Linux container, VM or SSH executor.
-A clean Linux build, official Comparator and the full Palomar preflight remain
-pending a public candidate commit.
+The first Ubuntu [CI run](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101096161)
+completed successfully for `81fbaf90a44aa3f8ae7807306288990dde3756ba`: a fresh project
+checkout and build (3,464 jobs, with pinned Mathlib cache), shared-definition comparison,
+Challenge/Solution build (3,467 jobs) and an audit of 1,986 declarations with zero forbidden
+dependencies. This is clean-checkout CI evidence, not a from-source rebuild of Mathlib.
 
-## Prepared GitHub workflows
+The first [full Palomar preflight](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101135106)
+used that same commit, `mode: full`, `palomar-standard-v1` and request ID `rare20261030`.
+Its mechanical report says `status: fail`, `phase: preparation`: unauthenticated source
+fetch failed with `could not read Username for 'https://github.com': terminal prompts disabled`
+because the repository was private. No Comparator or kernel checks ran in that workflow.
+This access failure is distinct from the successful local kernel replays and GitHub CI.
+
+The public documentation revision is to receive fresh CI and a full preflight at its
+own immutable commit. At the time of this documentation freeze, official sandboxed
+Comparator and a passing full Palomar report remain pending. Use the workflow links
+below to locate later runs and inspect their exact source identity and report.
+
+## GitHub workflows
 
 [Lean build](.github/workflows/lean.yml) builds the library and Challenge/Solution,
 checks shared definitions and runs the hardened axiom audit. Its actions are pinned.
@@ -90,9 +108,20 @@ distinguishes local checks, predictive full preflight and registry intake. Inspe
 the exact `mechanical-report.json`, including mandatory Lean and NanoDa results;
 a green ordinary CI job is insufficient.
 
-## Remaining external actions
+## Public candidate and remaining verification
 
-After review of the local candidate, create the public GitHub repository and push
-its frozen commit, run both workflows, and inspect the full mechanical report.
-Publication and execution have not occurred here. Registry intake and registration
-remain separate actions; no intake, submission or registration has been performed.
+The author authorized public visibility, the documentation update and a fresh run of
+both workflows. The public candidate keeps exactly the four Introduction theorems in
+`comparator.json`; B06/B07 remain open background obligations in the broader inventory.
+
+For the public commit, require a successful
+[Lean CI run](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/lean.yml)
+and inspect the report from the
+[full mechanical preflight](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/palomar-preflight.yml).
+A pass must identify that exact commit, the pinned pipeline, the four selected declarations,
+and acceptance by mandatory Lean and NanoDa checks. An ordinary green build is insufficient.
+
+GitHub publication, predictive preflight, registry intake and registration are distinct.
+No registry intake, submission or registration has been performed. A full-preflight pass
+would establish mechanical evidence for the selected interface, not whole-source coverage
+or completion of Palomar's later rendering and review.
