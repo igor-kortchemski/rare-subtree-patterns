@@ -1,7 +1,7 @@
 # Four-main-theorem publication candidate; exact verification status is in PUBLICATION.md.
 version: v0.4
 project:
-  name: Poisson declumping
+  name: "Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping"
   description: >-
     Lean proofs of the four Introduction theorems of Rare subtree patterns in
     size-conditioned Bienaymé trees: Poisson approximation and declumping,
