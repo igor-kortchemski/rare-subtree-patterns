@@ -32,7 +32,7 @@ The selected Comparator claims are the four Introduction results. B06's general
 characterization and B07's full functional theorem remain open in the original
 whole-source inventory; this review does not silently exclude or prove them.
 Source fidelity, local builds, standalone kernel replay, sandboxed Comparator and
-full Palomar mechanical verification are distinct checks; see `PUBLICATION.md`.
+full Palomar mechanical verification are distinct checks; see `verification/README.md`.
 
 
 ## Completion work after the Codex audit (30 October 2026)
@@ -158,7 +158,7 @@ The coordinator compiled the definition module with
 `lake build PoissonDeclumping.PlaneTree.Basic` and then ran:
 
 ```sh
-lake env lean /tmp/poisson-declumping-statement-check.lean
+lake env lean <temporary statement probe>.lean
 ```
 
 The probe imports `PoissonDeclumping.PlaneTree.Basic` and uses `#check` on the
@@ -179,7 +179,7 @@ reviewed types or semantic definitions change.
 
 The same independent reviewer checked the proposed probability reduction against
 `lem:declump_to_raw`, lines 2343–2399. **Statement-fidelity verdict: PASS.**
-The exact target in `/tmp/poisson-declumping-probability-check.lean` was inspected
+The exact target in a temporary probe file was inspected
 independently. The coordinator ran `lake env lean` on that probe and reported
 exit status zero with no additional premises in the elaborated type. This
 closes the early checkpoint; final implementation and axiom evidence remain

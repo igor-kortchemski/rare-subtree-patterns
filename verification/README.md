@@ -2,8 +2,8 @@
 
 The reviewed publication interface uses normalized weak attraction directly, without the
 unused truncated-moment conjunct. All results below concern the pinned Lean/mathlib 4.35.0
-candidate. The table records local evidence; the GitHub checks below identify their
-own exact commit and remain separate from sandboxed Comparator and full Palomar verification.
+candidate. The table records local evidence. The GitHub checks below, including the
+sandboxed Comparator run of the full Palomar preflight, identify their own exact commit.
 
 | Check | Current result | Evidence |
 | --- | --- | --- |
@@ -59,33 +59,47 @@ dependency artifacts. It does not claim a clean Linux checkout build.
 
 ## GitHub CI and full preflight
 
-[CI run 41101096161](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101096161)
-completed successfully for `81fbaf90a44aa3f8ae7807306288990dde3756ba` on Ubuntu.
-It checked out the candidate afresh, restored canonical Mathlib cache, built the library
-(3,464 jobs), compared 426 shared definition lines, built Challenge/Solution (3,467 jobs)
-and audited 1,986 project declarations with zero forbidden dependencies. This does not
-claim a from-source rebuild of Mathlib. The public documentation revision preserves all
-Lean sources, dependency/toolchain pins and Comparator configuration from that commit.
+Latest runs, 1 November 2026, for commit `fc5ef722392b1af41e8b9d5fc45d5a521b7823dd`:
 
-[Full-preflight run 41101135106](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101135106)
-checked the same source identity using pipeline
-`14aa8d6b3c2f14a8540605e37144560b9a00e7e7`, `mode: full`, profile `palomar-standard-v1`
-and request ID `rare20261030`. Its mechanical report records `status: fail` in
-`phase: preparation`: source fetch requires public access and failed while the repository
-was private. Comparator, Lean and NanoDa were not run by that workflow.
+- [Lean build run 41296377810](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41296377810):
+  success. The [workflow](../.github/workflows/lean.yml) checks out the commit, restores the
+  Mathlib cache, builds the library, runs `check-challenge-defs.sh`, builds Challenge/Solution
+  and runs the whole-library axiom audit.
+- [Full Palomar mechanical preflight run 41296377843](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41296377843):
+  success, with pipeline `14aa8d6b3c2f14a8540605e37144560b9a00e7e7`, `mode: full`, profile
+  `palomar-standard-v1` and request ID `raretitle002`. The run fetches the immutable source,
+  builds the pinned bubblewrap sandbox and runs `lake comparator` with the Challenge provenance
+  audit; its verification gate passed. The mechanical report is attached to the run as the
+  artifact `mechanical-report-raretitle002`.
 
-The next [public-source run](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41105960433)
-fetched `189178da782d875508c45c0b3f4c5792a99e5eb2`, then reported `license.mismatch` in
-preparation. The root `LICENSE` has since been normalized by removing its extra SPDX
-identifier line; its remaining bytes exactly match the official Apache-2.0 text.
-The SPDX choice remains `Apache-2.0`. This correction receives a new source commit and
-fresh checks; the failed run supplies no Comparator/kernel evidence.
+Commit `fc5ef72` has the Lean sources, toolchain, dependency pins and Comparator configuration
+of proof candidate `81fbaf90a44aa3f8ae7807306288990dde3756ba`; later commits do not change them.
+This is a predictive preflight, not registry intake or registration. Branch badges show the
+latest run of each workflow; the run pages identify the exact commit checked.
+
+### Earlier runs
+
+- [CI run 41101096161](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101096161)
+  completed successfully for `81fbaf90a44aa3f8ae7807306288990dde3756ba` on Ubuntu. It checked
+  out the candidate afresh, restored canonical Mathlib cache, built the library (3,464 jobs),
+  compared 426 shared definition lines, built Challenge/Solution (3,467 jobs) and audited 1,986
+  project declarations with zero forbidden dependencies. This does not claim a from-source
+  rebuild of Mathlib.
+- [Full-preflight run 41101135106](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101135106)
+  checked the same commit with request ID `rare20261030`. Its mechanical report records
+  `status: fail` in `phase: preparation`: source fetch requires public access and failed while
+  the repository was private. Comparator, Lean and NanoDa were not run by that workflow.
+- [Run 41105960433](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41105960433)
+  fetched `189178da782d875508c45c0b3f4c5792a99e5eb2`, then reported `license.mismatch` in
+  preparation because the root `LICENSE` had an extra SPDX identifier line. Commit `4b5e36d`
+  removed that line; the remaining bytes match the official Apache-2.0 text and the SPDX choice
+  remains `Apache-2.0`.
+- On 30 October 2026, commit `4b5e36d25347` passed both the
+  [Lean build](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41106370926)
+  and the [full preflight](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41106371913).
 
 The local `lake comparator --config comparator.json` attempt exited 2 because bubblewrap
 requires Linux namespaces (`comparator-platform.log`). No sandbox was disabled.
-Standalone export replay does not replace canonical Challenge provenance checking or
-Comparator. At this documentation freeze, a passing official Comparator/full Palomar
-report remains pending. Fresh public-candidate runs are available under
+All runs are listed under
 [Lean CI](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/lean.yml)
 and [full preflight](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/palomar-preflight.yml).
-Their reports identify the exact source commit; branch badges alone do not certify it.

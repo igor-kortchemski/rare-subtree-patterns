@@ -1,4 +1,4 @@
-# Four-main-theorem publication candidate; exact verification status is in PUBLICATION.md.
+# Four-main-theorem publication candidate; verification evidence is in verification/README.md.
 version: v0.4
 project:
   name: "Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping"
@@ -37,7 +37,7 @@ status:
     for the actual normalization function. The general stable-domain
     characterization and full functional J1 theorem are unformalized background,
     not assumptions of the selected results. Whole-source completion is not claimed.
-    Comparator and Palomar verification statuses are recorded in PUBLICATION.md.
+    Comparator and Palomar verification statuses are recorded in verification/README.md.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: [propext, Classical.choice, Quot.sound]
@@ -47,7 +47,7 @@ automation:
       models: []
       framework: Claude and Codex
       tool_setup: Lean 4.35.0, mathlib 4.35.0, local Lean autoformalization skills
-      prompting_notes: Continuation and audit instructions retained in the project records.
+      prompting_notes: Development-time agent instructions are not part of this repository; reviews and proof departures are recorded in INDEPENDENT_REVIEW.md and FORMALIZATION_REPORT.md.
   notes: >-
     Claude and Codex agents developed and reviewed the proofs under Igor
     Kortchemski's direction. The author and responsible maintainer were explicitly
@@ -60,7 +60,7 @@ review:
   reviewers: [Independent Claude and Codex review agents]
   notes: >-
     See INDEPENDENT_REVIEW.md for scoped statement and proof-route reviews.
-    See verification/README.md and PUBLICATION.md for the current mechanical evidence;
+    See verification/README.md for the current mechanical evidence;
     agent statement review is distinct from human review and Palomar verification.
 alignment:
   namespace: PoissonDeclumping

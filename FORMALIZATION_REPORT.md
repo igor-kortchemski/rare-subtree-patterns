@@ -29,8 +29,9 @@ and manuscript observations in
   revisions as pinned in `lake-manifest.json` (unchanged).
 - **Lean snapshot:** the maintained repository is
   [igor-kortchemski/rare-subtree-patterns](https://github.com/igor-kortchemski/rare-subtree-patterns).
-  Proof candidate `81fbaf90a44aa3f8ae7807306288990dde3756ba` passed GitHub CI; this
-  publication documentation revision preserves its mathematical sources and configuration.
+  Proof candidate `81fbaf90a44aa3f8ae7807306288990dde3756ba` passed GitHub CI; later
+  commits change only documentation, metadata and the license file, not its Lean sources
+  or configuration.
   There are 106 module files under `PoissonDeclumping/` (29,063 lines; the largest,
   `Bridge/EndpointSmoothing.lean`, has 1,234 lines) plus the root `PoissonDeclumping.lean`.
   They include `Examples/BinomialWalk.lean` (an aperiodic witness for `(H_α)`) and
@@ -375,14 +376,16 @@ hash `8f57c4051e8a62c1ccaa0a91f284f09e06ce41459d91a36ffb68551ad7153905`.
 It does not certify a clean rebuild of the changed tree. Current evidence above
 is an incremental local build with preserved pinned dependency artifacts.
 
-**GitHub CI:** [run 41101096161](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101096161)
-passed for `81fbaf90a44aa3f8ae7807306288990dde3756ba`, including a fresh Ubuntu project
-checkout/build with Mathlib cache, shared definitions, Challenge/Solution and the whole-library
-axiom audit. The public documentation revision preserves that proof/configuration snapshot.
-The first full Palomar run failed during preparation because private source could not be fetched;
-no proof checks ran. At this documentation freeze, sandboxed Comparator and a passing full
-Palomar report remain pending fresh public-candidate checks. Exact evidence and workflow links
-are in [verification/README.md](verification/README.md). Whole-paper completion is not claimed.
+**GitHub CI and full preflight:** on 1 November 2026, for commit
+`fc5ef722392b1af41e8b9d5fc45d5a521b7823dd`, the
+[Lean build](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41296377810)
+(fresh Ubuntu checkout and build with Mathlib cache, shared definitions, Challenge/Solution and
+the whole-library axiom audit) and the
+[full Palomar mechanical preflight](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41296377843)
+(sandboxed `lake comparator` with the Challenge provenance audit) both succeeded. That commit has
+the Lean sources and configuration of proof candidate `81fbaf9`. Earlier runs, including the
+failed preflight attempts, are recorded in [verification/README.md](verification/README.md).
+Whole-paper completion is not claimed.
 
 ## 6. Module map and remaining obligations
 
@@ -457,8 +460,7 @@ are in [verification/README.md](verification/README.md). Whole-paper completion 
   convergence directly; the redundant truncated-moment clause has been removed, and its general
   equivalence is not a prerequisite of the selected results. `maxCompleteHeight 0` is a junk
   value that no statement uses.
-- [HANDOVER_CLAUDE.md](HANDOVER_CLAUDE.md) is marked as superseded and kept for history; module docstrings
-  cite the correction labels F1–F15 of [docs/BRIDGE_PLAN.md](docs/BRIDGE_PLAN.md) (summarized as R1–R9 in
+- Module docstrings cite the correction labels F1–F15 of [docs/BRIDGE_PLAN.md](docs/BRIDGE_PLAN.md) (summarized as R1–R9 in
   [MANUSCRIPT_RECOMMENDATIONS.md](MANUSCRIPT_RECOMMENDATIONS.md); not to be confused with finding F1 of the
   statement review).
 
@@ -471,17 +473,10 @@ The exact selected proof export passes both independent NanoDa replay (56,903 de
 zero type-checker errors) and Lean's kernel replay; NanoDa logs a nonfatal pretty-printer
 message described in `verification/README.md`.
 
-Apache-2.0, Igor Kortchemski as formalization author and responsible maintainer, and the new
-repository name `igor-kortchemski/rare-subtree-patterns` were explicitly confirmed by the user.
-Canonical metadata, citation, license and a pinned manual full-preflight workflow are prepared.
-The default Comparator was attempted and cannot start on macOS because it requires Linux
-namespaces. No sandbox was disabled.
-
-The repository has been created and the proof candidate pushed; its Ubuntu CI is successful.
-Public visibility and fresh checks of the documentation revision are authorized. The initial
-full Palomar run failed at private-source fetching, before Comparator or kernel verification.
-The first public-source run then stopped at license detection; the root Apache-2.0
-license text has been normalized without changing the license choice or proofs.
-At this documentation freeze, a passing full report remains pending. Original B06/B07
-obligations remain explicitly open. No registry intake, submission or registration has
-occurred. See [PUBLICATION.md](PUBLICATION.md) for exact commits, runs and the certification scope.
+The formalization is licensed under Apache-2.0; Igor Kortchemski is its author and responsible
+maintainer, and the repository is `igor-kortchemski/rare-subtree-patterns`. The local default
+Comparator cannot start on macOS because its sandbox requires Linux namespaces; no sandbox was
+disabled. On Linux, the full Palomar mechanical preflight of commit `fc5ef72` succeeded on
+1 November 2026 (see Section 5). Original B06/B07 obligations remain explicitly open.
+See [verification/README.md](verification/README.md) for exact commits, runs and the
+certification scope.

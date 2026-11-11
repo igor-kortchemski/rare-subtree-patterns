@@ -1,83 +1,77 @@
-# Poisson approximation and declumping
+# Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping
 
 [![CI](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/lean.yml/badge.svg?branch=main)](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/lean.yml)
 [![Comparator](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/palomar-preflight.yml/badge.svg?branch=main)](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/workflows/palomar-preflight.yml)
 
-Lean formalization of the four Introduction theorems of
-[*Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation
-and declumping*](https://arxiv.org/abs/2607.22291v1), by Igor Kortchemski and Leonard
-Vetter. The unchanged paper source is [poisson-declumping-arxiv.tex](poisson-declumping-arxiv.tex).
+Lean 4 and Mathlib formalization of
+[*Rare subtree patterns in size-conditioned Bienaymé trees: Poisson approximation and declumping*](https://arxiv.org/abs/2607.22291v1)
+(arXiv:2607.22291v1) by Igor Kortchemski and Leonard Vetter.
+**The four Introduction theorems (Theorems 1.1–1.4) are proved, using only the axioms
+`propext`, `Classical.choice` and `Quot.sound`, with no `sorry` outside the four deliberate
+statement holes of the Comparator Challenge.**
 
-## Proved results and certification scope
+Statements: [Challenge.lean](Challenge.lean) · Correspondence: [FORMALIZATION_REPORT.md](FORMALIZATION_REPORT.md) · Verification: [verification/README.md](verification/README.md)
 
-The four Introduction theorems are proved in Lean, with exactly the types of the
-statement-level propositions in [Statements/Main.lean](PoissonDeclumping/Statements/Main.lean):
+## Main results
 
-| Paper | Lean theorem |
-| --- | --- |
-| Theorem 1.1 (marked Poisson approximation / law of large numbers) | [PoissonDeclumping.poissonApproximation](PoissonDeclumping/MainTheorems.lean#L38) |
-| Theorem 1.2 (root declumping) | [PoissonDeclumping.poissonApproximation2](PoissonDeclumping/MainTheorems.lean#L42) |
-| Theorem 1.3 (maximal complete non-fringe $r$-ary height) | [PoissonDeclumping.maxString](PoissonDeclumping/MainTheorems.lean#L46) |
-| Theorem 1.4 (maximum leaf-height) | [PoissonDeclumping.maxLeafHeight](PoissonDeclumping/MainTheorems.lean#L50) |
+The paper counts fringe subtrees carrying a rare mark in a Bienaymé tree $\mathcal T_n$
+conditioned to have $n$ vertices, proves Poisson approximation and a root-declumping
+principle for these counts, and applies them to extremal statistics. Below, $\pi_n$ is the
+probability that an unconditioned Bienaymé tree is marked.
 
-[comparator.json](comparator.json) selects exactly these four theorems for the
-Palomar publication candidate. The repository also includes the reviewed numbered
-results and their supporting proofs. Whole-source completion is not claimed.
+| Paper | Lean theorem | Statement |
+| --- | --- | --- |
+| Theorem 1.1 | [`PoissonDeclumping.poissonApproximation`](PoissonDeclumping/MainTheorems.lean#L38) | Under (M) and (C), the marked count is close in total variation to $\mathrm{Poisson}(n\pi_n)$ when $n\pi_n$ is bounded, and is $\sim n\pi_n$ in probability when $n\pi_n\to\infty$. |
+| Theorem 1.2 | [`PoissonDeclumping.poissonApproximation2`](PoissonDeclumping/MainTheorems.lean#L42) | Root declumping: under (S), and (C) for the declumped marks, the declumped count is close in total variation to $\mathrm{Poisson}(c_B n\pi_n)$ when $n\pi_n$ is bounded, and diverges when $n\pi_n\to\infty$. |
+| Theorem 1.3 | [`PoissonDeclumping.maxString`](PoissonDeclumping/MainTheorems.lean#L46) | Maximal complete non-fringe $r$-ary height $H_r$: a lattice Gumbel limit for $H_1$ if $\mu_1>0$; concentration of $H_r$ on two consecutive values if $r\ge 2$ and $\mu_r>0$. |
+| Theorem 1.4 | [`PoissonDeclumping.maxLeafHeight`](PoissonDeclumping/MainTheorems.lean#L50) | Maximum leaf-height: a lattice Gumbel limit if $\mu_1>0$; concentration on two consecutive values if $\mu_1=0$. |
 
-The main statements retain the paper's marking and cutoff hypotheses and its standing
+Each theorem has exactly the type of a proposition in
+[Statements/Defs.lean](PoissonDeclumping/Statements/Defs.lean#L343), such as
+`PoissonApproximationStatement`, with limits along the admissible sizes $n$. These
+statements retain the paper's marking and cutoff hypotheses and its standing
 assumption $(H_\alpha)$: a critical offspring law with $\mu_1\ne 1$, in the domain of
 attraction of an $\alpha$-stable law, $1<\alpha\le 2$. `StableDomain` expresses this
 through normalized weak convergence to the specified stable law; periodic laws are
 included. The stable random-walk toolbox, including regular variation and the lattice
 local limit theorem, is derived from that hypothesis. The Bienaymé tree law, Łukasiewicz
 coding, cycle lemma, Chen–Stein bound, bridge estimates and extremal applications are
-formalized too.
+formalized too; the paper's other numbered results are proved, some in corrected or
+generalized form.
 
-The general stable-domain characterization (**B06**) and full functional Skorokhod
+The general stable-domain characterization (**B06**) and the full functional Skorokhod
 $J_1$ theorem (**B07**) remain unformalized cited background. Their required consequences
 are proved separately; the main theorems require neither a separate truncated-moment
 criterion nor full functional convergence. **Potter bounds are proved for the actual
 normalization function used in the paper**; the generic Potter theorem is cited
-background. Conjectures remain conjectures.
+background. Conjectures remain conjectures, and whole-source completion is not claimed.
+The periodic-case corrections and the other manuscript observations (R1–R9) are in
+[MANUSCRIPT_RECOMMENDATIONS.md](MANUSCRIPT_RECOMMENDATIONS.md); none changes the
+conclusion of an Introduction theorem. Proof departures are listed in Section 4 of
+[FORMALIZATION_REPORT.md](FORMALIZATION_REPORT.md).
 
-[FORMALIZATION_REPORT.md](FORMALIZATION_REPORT.md) and [PAPER_INVENTORY.md](PAPER_INVENTORY.md)
-retain the full inventory, proof departures and periodic-domain corrections.
-[INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md) records scoped agent statement and proof-route
-reviews; [MANUSCRIPT_RECOMMENDATIONS.md](MANUSCRIPT_RECOMMENDATIONS.md) records source observations.
+## Where to start
 
-## Verification status
+- [Challenge.lean](Challenge.lean): the four statements and every definition they use,
+  importing only Mathlib; readable without the rest of the library.
+- [PoissonDeclumping/Statements/Defs.lean](PoissonDeclumping/Statements/Defs.lean): the same
+  definitions inside the library, including `StableDomain` and the assumptions (M), (S), (C).
+- [PoissonDeclumping/MainTheorems.lean](PoissonDeclumping/MainTheorems.lean): the four proofs
+  assembled; [PoissonDeclumping.lean](PoissonDeclumping.lean) imports every module.
+- [PoissonDeclumping/Stable/ToolkitProof.lean](PoissonDeclumping/Stable/ToolkitProof.lean):
+  `Stable.stableToolkit` derives the stable random-walk toolbox from $(H_\alpha)$.
+- [PoissonDeclumping/Examples/](PoissonDeclumping/Examples): periodic and aperiodic offspring
+  laws satisfying $(H_\alpha)$.
+- [PAPER_INVENTORY.md](PAPER_INVENTORY.md) lists every claim of the paper with a stable ID;
+  Section 6 of the report maps the modules.
 
-[GitHub CI for commit 81fbaf9](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101096161)
-passed on Ubuntu: the library build, shared-definition check, Challenge/Solution build
-and whole-library audit of **1,986 declarations, zero forbidden axiom dependencies**.
-The documentation revision prepared for public publication preserves that commit's
-Lean sources, toolchain, dependencies and Comparator configuration; subsequent runs
-are linked by the badges above and identify their exact commit.
-
-The selected proof closures also pass standalone NanoDa replay (56,903 declarations,
-zero type-checker errors) and Lean kernel replay. The only permitted axioms are
-`propext`, `Classical.choice` and `Quot.sound`. The proof library has no proof holes;
-[Challenge.lean](Challenge.lean) has four deliberate isolated statement holes.
-
-**Full Palomar verification is pending at this documentation revision.** The
-[first full-preflight attempt](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41101135106)
-stopped before proof checks because the repository was private. The public candidate
-is to be checked by the same pinned full workflow. Its first public-source attempt
-identified a license-file formatting issue; the root `LICENSE` now matches the standard
-Apache-2.0 text exactly. The Comparator badge reports that
-workflow's aggregate status, including source preparation; it does not certify a
-particular commit on its own. See [PUBLICATION.md](PUBLICATION.md) and
-[verification/README.md](verification/README.md) for exact evidence and limitations,
-including the nonfatal standalone NanoDa pretty-printer diagnostic.
-
-## Build and check
+## Verify
 
 Install [Lean and elan](https://leanprover-community.github.io/install/project.html), then:
 
 ```sh
 git clone https://github.com/igor-kortchemski/rare-subtree-patterns.git
 cd rare-subtree-patterns
-# For a cited candidate, check out its full commit SHA before building.
 lake exe cache get
 lake build
 bash verification/check-challenge-defs.sh
@@ -85,26 +79,42 @@ lake build Challenge Solution
 lake env lean verification/AxiomAudit.lean
 ```
 
-The project pins Lean `leanprover/lean4:v4.35.0`, Mathlib `v4.35.0` and exact dependency
-revisions in [lake-manifest.json](lake-manifest.json). Preserve these pins when
-reproducing a candidate. Open the cloned directory in VS Code with the Lean 4 extension.
+The project pins Lean `leanprover/lean4:v4.35.0`, Mathlib `v4.35.0` and the exact dependency
+revisions in [lake-manifest.json](lake-manifest.json); do not run `lake update`. To browse the
+proofs, open the cloned folder in VS Code with the Lean 4 extension.
 
-Start reading at [PoissonDeclumping.lean](PoissonDeclumping.lean), which imports every
-maintained proof module, or at [MainTheorems.lean](PoissonDeclumping/MainTheorems.lean)
-for the four main exports. [ARCHITECTURE.md](ARCHITECTURE.md) describes the module layout.
+The [Lean build](.github/workflows/lean.yml) workflow runs the commands above on Ubuntu: the
+library build, the check that the Challenge definitions equal the library text, the
+Challenge/Solution build and an axiom audit of every project declaration. The
+[full Palomar preflight](.github/workflows/palomar-preflight.yml) runs `lake comparator` on
+[comparator.json](comparator.json), with NanoDa enabled: it checks that `Solution` proves the
+four Challenge statements with the same types and definitions and only the three permitted
+axioms. On 1 November 2026 both passed for commit `fc5ef72`
+([CI run](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41296377810),
+[preflight run](https://github.com/igor-kortchemski/rare-subtree-patterns/actions/runs/41296377843));
+later commits do not change the Lean sources or configuration. The badges show the latest run
+of each workflow on `main`. [verification/README.md](verification/README.md) records the runs,
+local logs and standalone NanoDa and Lean kernel replays of the four proofs.
 
-## License, citation and contributions
+## How it was made
 
-The formalization code is licensed under [Apache-2.0](LICENSE). Igor Kortchemski is
-the formalization author and responsible maintainer. Claude and Codex are recorded
-as automated tools in [formalization.yaml](formalization.yaml); the reviews described
-here are agent reviews. The unchanged paper source retains its own CC-BY-4.0 license.
-Installed skills retain their notices under `.agents/skill-notices/`.
+Claude and Codex agents developed and reviewed the proofs under Igor Kortchemski's direction,
+with Lean 4.35.0, Mathlib 4.35.0 and Lean autoformalization skills; exact model identities for
+the earlier Claude work were not recorded. Independent Claude and Codex review agents checked
+the statements, the Challenge and selected proof routes against the paper
+([INDEPENDENT_REVIEW.md](INDEPENDENT_REVIEW.md)). These are agent reviews: no human
+line-by-line review of the Lean proofs is claimed, and several proof directories were checked
+only by the Lean kernel, as listed in Section 6 of [FORMALIZATION_REPORT.md](FORMALIZATION_REPORT.md).
+[ARCHITECTURE.md](ARCHITECTURE.md) and [docs/BRIDGE_PLAN.md](docs/BRIDGE_PLAN.md) are design
+notes written before the proofs; module docstrings cite the latter's corrections F1–F15.
 
-Use [CITATION.cff](CITATION.cff) to cite the formalization and cite the paper separately.
-Issues and pull requests are welcome; include the candidate commit and a reproducible
-Lean diagnostic for proof or build problems.
+## License and citation
 
-The local [Lean skills](.agents/README.md) and [AGENTS.md](AGENTS.md) describe the
-formalization workflow. Use `lean-workflow` for proof development and maintain the
-coverage record when mathematical scope or source correspondence changes.
+The formalization is licensed under [Apache-2.0](LICENSE). Igor Kortchemski is its author and
+maintainer. The license does not cover the paper: its unchanged arXiv source
+([poisson-declumping-arxiv.tex](poisson-declumping-arxiv.tex), with its figures and
+bibliography) is distributed under CC BY 4.0.
+
+Cite the formalization with [CITATION.cff](CITATION.cff) and cite the paper separately.
+Issues and pull requests are welcome; for a proof or build problem, include the commit and a
+reproducible Lean diagnostic.
