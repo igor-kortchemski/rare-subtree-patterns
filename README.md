@@ -10,6 +10,11 @@ Lean 4 and Mathlib formalization of
 `propext`, `Classical.choice` and `Quot.sound`, with no `sorry` outside the four deliberate
 statement holes of the Comparator Challenge.**
 
+Registered as **[PALOMAR-2026-11-01-000010, version 2](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-01-000010&version=2)** for
+Theorems 1.1–1.4; the registered snapshot is commit [`fc5ef72`](https://github.com/igor-kortchemski/rare-subtree-patterns/commit/fc5ef722392b1af41e8b9d5fc45d5a521b7823dd).
+[Version 1](https://palomar-registry.org/entry.html?id=PALOMAR-2026-11-01-000010&version=1) recorded the same theorems at the earlier commit
+[`4b5e36d`](https://github.com/igor-kortchemski/rare-subtree-patterns/commit/4b5e36d25347ee548108439235d6fefe8fddf718).
+
 Statements: [Challenge.lean](Challenge.lean) · Correspondence: [FORMALIZATION_REPORT.md](FORMALIZATION_REPORT.md) · Verification: [verification/README.md](verification/README.md)
 
 ## Main results
